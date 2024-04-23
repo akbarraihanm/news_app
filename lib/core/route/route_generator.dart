@@ -5,7 +5,9 @@ import 'package:news_app/blocs/headlines/headlines_event.dart';
 import 'package:news_app/di/app_locator.dart';
 import 'package:news_app/presentation/home/page/all_news_screen.dart';
 import 'package:news_app/presentation/home/page/home_screen.dart';
+import 'package:news_app/presentation/home/page/news_detail_screen.dart';
 import 'package:news_app/presentation/home/param/all_news_param.dart';
+import 'package:news_app/presentation/home/param/news_detail_param.dart';
 import 'package:news_app/presentation/splash/splash_screen.dart';
 
 class RouteGenerator {
@@ -39,6 +41,11 @@ class RouteGenerator {
           },
           child: AllNewsScreen(param: param, scrollCtrl: scrollCtrl),
         );
+      }
+
+      case NewsDetailScreen.routeName: {
+        final param = args as NewsDetailParam;
+        child = NewsDetailScreen(param: param);
       }
 
       default: {

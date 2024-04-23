@@ -3,6 +3,8 @@ import 'package:news_app/core/config/app_color.dart';
 import 'package:news_app/core/config/app_typography.dart';
 import 'package:news_app/core/const/asset_const.dart';
 import 'package:news_app/domain/news/domain/entity/news_entity.dart';
+import 'package:news_app/presentation/home/page/news_detail_screen.dart';
+import 'package:news_app/presentation/home/param/news_detail_param.dart';
 
 class AllNewsItem extends StatelessWidget {
   final DataNewsEntity? data;
@@ -21,40 +23,49 @@ class AllNewsItem extends StatelessWidget {
           offset: Offset(2,2),
         )],
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ClipRRect(
-            borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
-            child: Image.network(
-              data?.urlToImage ?? "",
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: 160,
-              errorBuilder: (_,__,___) {
-                return Center(
-                  child: Image.asset(
-                    AssetConst.icNews,
-                    height: 160,
-                    fit: BoxFit.fill,
-                  ),
-                );
-              },
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Text(
-              "${data?.title}",
-              style: AppTypography.copyWith(
-                color: AppColor.blueOcean,
-                weight: FontWeight.w500,
+      child: InkWell(
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        onTap: () => Navigator.pushNamed(
+          context,
+          NewsDetailScreen.routeName,
+          arguments: NewsDetailParam(data),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+              borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
+              child: Image.network(
+                data?.urlToImage ?? "",
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: 160,
+                errorBuilder: (_,__,___) {
+                  return Center(
+                    child: Image.asset(
+                      AssetConst.icNews,
+                      height: 160,
+                      fit: BoxFit.fill,
+                    ),
+                  );
+                },
               ),
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                "${data?.title}",
+                style: AppTypography.copyWith(
+                  color: AppColor.blueOcean,
+                  weight: FontWeight.w500,
+                ),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

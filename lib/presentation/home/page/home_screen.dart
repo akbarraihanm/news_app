@@ -7,7 +7,6 @@ import 'package:news_app/blocs/headlines/headlines_event.dart';
 import 'package:news_app/blocs/headlines/headlines_state.dart';
 import 'package:news_app/core/config/app_color.dart';
 import 'package:news_app/core/config/app_typography.dart';
-import 'package:news_app/core/const/asset_const.dart';
 import 'package:news_app/core/extensions/double_extension.dart';
 import 'package:news_app/core/util/app_util.dart';
 import 'package:news_app/core/widgets/app_bar/app_bar.dart';
@@ -15,6 +14,7 @@ import 'package:news_app/core/widgets/loading/app_loading.dart';
 import 'package:news_app/di/app_locator.dart';
 import 'package:news_app/presentation/home/page/all_news_screen.dart';
 import 'package:news_app/presentation/home/param/all_news_param.dart';
+import 'package:news_app/presentation/home/widgets/home_news_item.dart';
 
 class HomeScreen extends StatelessWidget {
   static const routeName = "/home";
@@ -55,38 +55,7 @@ class HomeScreen extends StatelessWidget {
                       enlargeCenterPage: true,
                       enableInfiniteScroll: false,
                     ),
-                    items: bloc.list.map((e) => Stack(
-                      children: [
-                        Image.network(
-                          e.urlToImage ?? "",
-                          fit: BoxFit.fill,
-                          width: double.infinity,
-                          height: 160,
-                          errorBuilder: (_,__,___) {
-                            return Center(
-                              child: Image.asset(
-                                AssetConst.icNews,
-                                height: 40,
-                                width: 40,
-                                fit: BoxFit.fill,
-                              ),
-                            );
-                          },
-                        ),
-                        Positioned(
-                          bottom: 0,
-                          left: 0,
-                          child: Text(
-                            "${e.title}",
-                            style: AppTypography.copyWith(
-                              size: 16,
-                              weight: FontWeight.w600,
-                              color: Colors.white,
-                            ),
-                          ),
-                        )
-                      ],
-                    )).toList(),
+                    items: bloc.list.map((e) => HomeNewsItem(data: e)).toList(),
                   ),
                 );
               },
@@ -147,38 +116,7 @@ class HomeScreen extends StatelessWidget {
                       enlargeCenterPage: true,
                       enableInfiniteScroll: false,
                     ),
-                    items: bloc.list.map((e) => Stack(
-                      children: [
-                        Image.network(
-                          e.urlToImage ?? "",
-                          fit: BoxFit.cover,
-                          width: double.infinity,
-                          height: 160,
-                          errorBuilder: (_,__,___) {
-                            return Center(
-                              child: Image.asset(
-                                AssetConst.icNews,
-                                height: 40,
-                                width: 40,
-                                fit: BoxFit.fill,
-                              ),
-                            );
-                          },
-                        ),
-                        Positioned(
-                          bottom: 0,
-                          left: 0,
-                          child: Text(
-                            "${e.title}",
-                            style: AppTypography.copyWith(
-                              size: 16,
-                              weight: FontWeight.w600,
-                              color: Colors.white,
-                            ),
-                          ),
-                        )
-                      ],
-                    )).toList(),
+                    items: bloc.list.map((e) => HomeNewsItem(data: e)).toList(),
                   ),
                 );
               },
@@ -239,38 +177,7 @@ class HomeScreen extends StatelessWidget {
                       enlargeCenterPage: true,
                       enableInfiniteScroll: false,
                     ),
-                    items: bloc.list.map((e) => Stack(
-                      children: [
-                        Image.network(
-                          e.urlToImage ?? "",
-                          fit: BoxFit.cover,
-                          width: double.infinity,
-                          height: 160,
-                          errorBuilder: (_,__,___) {
-                            return Center(
-                              child: Image.asset(
-                                AssetConst.icNews,
-                                height: 40,
-                                width: 40,
-                                fit: BoxFit.fill,
-                              ),
-                            );
-                          },
-                        ),
-                        Positioned(
-                          bottom: 0,
-                          left: 0,
-                          child: Text(
-                            "${e.title}",
-                            style: AppTypography.copyWith(
-                              size: 16,
-                              weight: FontWeight.w600,
-                              color: Colors.white,
-                            ),
-                          ),
-                        )
-                      ],
-                    )).toList(),
+                    items: bloc.list.map((e) => HomeNewsItem(data: e)).toList(),
                   ),
                 );
               },
@@ -331,38 +238,7 @@ class HomeScreen extends StatelessWidget {
                       enlargeCenterPage: true,
                       enableInfiniteScroll: false,
                     ),
-                    items: bloc.list.map((e) => Stack(
-                      children: [
-                        Image.network(
-                          e.urlToImage ?? "",
-                          fit: BoxFit.cover,
-                          width: double.infinity,
-                          height: 160,
-                          errorBuilder: (_,__,___) {
-                            return Center(
-                              child: Image.asset(
-                                AssetConst.icNews,
-                                height: 40,
-                                width: 40,
-                                fit: BoxFit.fill,
-                              ),
-                            );
-                          },
-                        ),
-                        Positioned(
-                          bottom: 0,
-                          left: 0,
-                          child: Text(
-                            "${e.title}",
-                            style: AppTypography.copyWith(
-                              size: 16,
-                              weight: FontWeight.w600,
-                              color: Colors.white,
-                            ),
-                          ),
-                        )
-                      ],
-                    )).toList(),
+                    items: bloc.list.map((e) => HomeNewsItem(data: e)).toList(),
                   ),
                 );
               },

@@ -31,7 +31,7 @@ class NewsData {
     source = map['source'] == null? null: Source.fromJson(map['source']);
     author = map['author'] ?? "No Author";
     title = map['title'] ?? "No Title";
-    desc = map['desc'] ?? "No Description";
+    desc = map['description'] ?? "No Description";
     url = map['url'];
     urlToImage = map['urlToImage'];
     publishedAt = map['publishedAt'];
@@ -42,7 +42,7 @@ class NewsData {
     'source': source?.toJson(),
     'author': author,
     'title': title,
-    'desc': desc,
+    'description': desc,
     'url': url,
     'urlToImage': urlToImage,
     'publishedAt': publishedAt,
