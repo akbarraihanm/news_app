@@ -38,9 +38,11 @@ class CustomAppBar extends AppBar {
       icon: Platform.isIOS? const Icon(
         Icons.arrow_back_ios,
         size: 24,
+        color: Colors.white,
       ): const Icon(
         Icons.arrow_back,
         size: 24,
+        color: Colors.white,
       ),
       onPressed: () {
         if (onBack == null) {

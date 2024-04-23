@@ -13,6 +13,8 @@ import 'package:news_app/core/util/app_util.dart';
 import 'package:news_app/core/widgets/app_bar/app_bar.dart';
 import 'package:news_app/core/widgets/loading/app_loading.dart';
 import 'package:news_app/di/app_locator.dart';
+import 'package:news_app/presentation/home/page/all_news_screen.dart';
+import 'package:news_app/presentation/home/param/all_news_param.dart';
 
 class HomeScreen extends StatelessWidget {
   static const routeName = "/home";
@@ -93,13 +95,32 @@ class HomeScreen extends StatelessWidget {
           24.spaceHeight,
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Text(
-              "Business",
-              style: AppTypography.copyWith(
-                size: 16,
-                weight: FontWeight.w600,
-                color: Colors.white,
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Business",
+                  style: AppTypography.copyWith(
+                    size: 16,
+                    weight: FontWeight.w600,
+                    color: Colors.white,
+                  ),
+                ),
+                InkWell(
+                  onTap: () => Navigator.pushNamed(
+                    context,
+                    AllNewsScreen.routeName,
+                    arguments: AllNewsParam('business'),
+                  ),
+                  child: Text(
+                    "All Businesses",
+                    style: AppTypography.copyWith(
+                      weight: FontWeight.w700,
+                      color: Colors.green,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           16.spaceHeight,
@@ -166,13 +187,32 @@ class HomeScreen extends StatelessWidget {
           16.spaceHeight,
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Text(
-              "Technology",
-              style: AppTypography.copyWith(
-                size: 16,
-                weight: FontWeight.w600,
-                color: Colors.white,
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Technology",
+                  style: AppTypography.copyWith(
+                    size: 16,
+                    weight: FontWeight.w600,
+                    color: Colors.white,
+                  ),
+                ),
+                InkWell(
+                  onTap: () => Navigator.pushNamed(
+                    context,
+                    AllNewsScreen.routeName,
+                    arguments: AllNewsParam('technology'),
+                  ),
+                  child: Text(
+                    "All Technologies",
+                    style: AppTypography.copyWith(
+                      weight: FontWeight.w700,
+                      color: Colors.green,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           16.spaceHeight,
@@ -239,13 +279,32 @@ class HomeScreen extends StatelessWidget {
           16.spaceHeight,
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Text(
-              "Sports",
-              style: AppTypography.copyWith(
-                size: 16,
-                weight: FontWeight.w600,
-                color: Colors.white,
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Sports",
+                  style: AppTypography.copyWith(
+                    size: 16,
+                    weight: FontWeight.w600,
+                    color: Colors.white,
+                  ),
+                ),
+                InkWell(
+                  onTap: () => Navigator.pushNamed(
+                    context,
+                    AllNewsScreen.routeName,
+                    arguments: AllNewsParam('sports'),
+                  ),
+                  child: Text(
+                    "All Sports",
+                    style: AppTypography.copyWith(
+                      weight: FontWeight.w700,
+                      color: Colors.green,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           16.spaceHeight,
